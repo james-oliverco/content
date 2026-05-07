@@ -7,7 +7,7 @@
 **Setting:** Clean London desk workspace (wallet open, MacBook edge, espresso, fern)
 **Funnel Stage:** Awareness (Cold Traffic)
 **Format:** 4:5 Feed (Instagram + Facebook)
-**Asset:** [Image 1](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_084906_4f787a39-4528-45a5-b0ac-7228dddd8762.png) *(product-accurate, generated from packshot)*
+**Asset:** [Image 1](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_124926_b70c8308-5165-4d96-9526-f7ae066de3de.png) *(product-accurate, generated from packshot — v2 with corrected interior)*
 
 ```
 PRIMARY TEXT (125 chars):
@@ -32,7 +32,7 @@ DESTINATION URL: olivercompanylondon.com/collections/vegan-wallets
 **Setting:** Shoreditch street, golden hour, navy overcoat, wallet being drawn from pocket
 **Funnel Stage:** Awareness / Consideration (Cold Traffic)
 **Format:** 4:5 Feed (Instagram + Facebook)
-**Asset:** [Image 2](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085215_1891fa1d-1307-4f7a-a545-cd6e69dd5918.png) *(product-accurate, generated from packshot)*
+**Asset:** [Image 2](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_124931_abdff4b0-caac-4f7c-89d9-86d394961946.png) *(product-accurate, generated from packshot — v2 with corrected scale)*
 
 ```
 PRIMARY TEXT (125 chars):
@@ -57,7 +57,7 @@ DESTINATION URL: olivercompanylondon.com/products/premium-compact-wallet
 **Setting:** Marble flat lay — wallet with apple, leaves, award badge prop
 **Funnel Stage:** Consideration / Conversion (Warm Retargeting)
 **Format:** 4:5 Feed (Instagram + Facebook)
-**Asset:** [Image 3](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085225_b81d1c87-d7db-4530-8bcb-a747b405f260.png) *(product-accurate, generated from packshot)*
+**Asset:** [Image 3](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_124937_86a659b7-f7e5-4fa7-aa24-cef929379b43.png) *(product-accurate, generated from packshot — v2 with corrected interior layout)*
 
 ```
 PRIMARY TEXT (125 chars):
@@ -82,7 +82,7 @@ DESTINATION URL: olivercompanylondon.com/products/premium-compact-wallet
 **Setting:** Marylebone coffee shop, wallet open showing card slots, elegant hands
 **Funnel Stage:** Consideration / Conversion (Warm / Retargeting)
 **Format:** 4:5 Feed (Instagram + Facebook)
-**Asset:** [Image 4](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085237_3dfb916b-012b-4ad5-8df4-42b7b4ac2fb2.png) *(product-accurate, generated from packshot)*
+**Asset:** [Image 4](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_124943_b1059fa6-db22-403d-8e46-11fafe6108e9.png) *(product-accurate, generated from packshot — v2 with corrected interior layout)*
 
 ```
 PRIMARY TEXT (125 chars):
