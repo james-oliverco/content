@@ -7,7 +7,7 @@
 **Setting:** Clean London desk workspace (wallet open, MacBook edge, espresso, fern)
 **Funnel Stage:** Awareness (Cold Traffic)
 **Format:** 4:5 Feed (Instagram + Facebook)
-**Asset:** [Image 1](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_080611_1bcccaf3-85ba-4f87-a76a-0a2fc6158505.png)
+**Asset:** [Image 1](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_084906_4f787a39-4528-45a5-b0ac-7228dddd8762.png) *(product-accurate, generated from packshot)*
 
 ```
 PRIMARY TEXT (125 chars):
@@ -32,7 +32,7 @@ DESTINATION URL: olivercompanylondon.com/collections/vegan-wallets
 **Setting:** Shoreditch street, golden hour, navy overcoat, wallet being drawn from pocket
 **Funnel Stage:** Awareness / Consideration (Cold Traffic)
 **Format:** 4:5 Feed (Instagram + Facebook)
-**Asset:** [Image 2](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_080622_3c554e82-fcc4-426a-8023-fdbc65a47fb7.png)
+**Asset:** [Image 2](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085215_1891fa1d-1307-4f7a-a545-cd6e69dd5918.png) *(product-accurate, generated from packshot)*
 
 ```
 PRIMARY TEXT (125 chars):
@@ -57,7 +57,7 @@ DESTINATION URL: olivercompanylondon.com/products/premium-compact-wallet
 **Setting:** Marble flat lay — wallet with apple, leaves, award badge prop
 **Funnel Stage:** Consideration / Conversion (Warm Retargeting)
 **Format:** 4:5 Feed (Instagram + Facebook)
-**Asset:** [Image 3](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_080627_79fdd4a9-19fb-4877-9436-ebb35d009044.png)
+**Asset:** [Image 3](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085225_b81d1c87-d7db-4530-8bcb-a747b405f260.png) *(product-accurate, generated from packshot)*
 
 ```
 PRIMARY TEXT (125 chars):
@@ -82,7 +82,7 @@ DESTINATION URL: olivercompanylondon.com/products/premium-compact-wallet
 **Setting:** Marylebone coffee shop, wallet open showing card slots, elegant hands
 **Funnel Stage:** Consideration / Conversion (Warm / Retargeting)
 **Format:** 4:5 Feed (Instagram + Facebook)
-**Asset:** [Image 4](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_080632_a35e4cfd-d839-4ab8-bc5f-47473acfafac.png)
+**Asset:** [Image 4](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085237_3dfb916b-012b-4ad5-8df4-42b7b4ac2fb2.png) *(product-accurate, generated from packshot)*
 
 ```
 PRIMARY TEXT (125 chars):
@@ -108,7 +108,7 @@ DESTINATION URL: olivercompanylondon.com/collections/vegan-wallets
 **Funnel Stage:** Awareness (Cold Traffic — Reels + Stories)
 **Format:** 9:16 Vertical (Instagram Reels, Facebook Reels, Stories)
 **Duration:** 15 seconds (Hyper Motion edit)
-**Asset:** Job ID `e45b2077-7811-475f-b759-06f7202c9a6f` — view in Higgsfield
+**Asset:** Job ID `8c7ff0ec-e331-49b2-9e7d-6c3bf53f5587` — view in Higgsfield *(product-accurate, generated from packshot)*
 
 ```
 PRIMARY TEXT (125 chars):

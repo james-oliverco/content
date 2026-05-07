@@ -183,18 +183,18 @@ Oliver Co London is a B Corp-certified premium vegan accessories brand based in 
 
 ### Image Assets (4:5 ratio, 2K resolution, Marketing Studio Image model)
 
-| # | Angle | Asset |
-|---|---|---|
-| 1 | Problem/Solution — Desk/Workspace | [View Image](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_080611_1bcccaf3-85ba-4f87-a76a-0a2fc6158505.png) |
-| 2 | Aspiration — Shoreditch Street | [View Image](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_080622_3c554e82-fcc4-426a-8023-fdbc65a47fb7.png) |
-| 3 | Social Proof — Marble Flat Lay | [View Image](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_080627_79fdd4a9-19fb-4877-9436-ebb35d009044.png) |
-| 4 | Product Feature — Coffee Shop | [View Image](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_080632_a35e4cfd-d839-4ab8-bc5f-47473acfafac.png) |
+| # | Angle | Asset | Reference |
+|---|---|---|---|
+| 1 | Problem/Solution — Desk/Workspace | [View Image](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_084906_4f787a39-4528-45a5-b0ac-7228dddd8762.png) | Packshot 1 (closed angled) |
+| 2 | Aspiration — Shoreditch Street | [View Image](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085215_1891fa1d-1307-4f7a-a545-cd6e69dd5918.png) | Packshot 1 (closed angled) |
+| 3 | Social Proof — Marble Flat Lay | [View Image](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085225_b81d1c87-d7db-4530-8bcb-a747b405f260.png) | Packshot 3 (interior close-up) |
+| 4 | Product Feature — Coffee Shop | [View Image](https://d8j0ntlcm91z4.cloudfront.net/user_381s9iDVFrWU1wAUmk7K9PrvnDc/hf_20260507_085237_3dfb916b-012b-4ad5-8df4-42b7b4ac2fb2.png) | Packshot 3 (interior close-up) |
 
 ### Video Asset (9:16, 1080p, Marketing Studio — Hyper Motion)
 
-| # | Angle | Asset |
-|---|---|---|
-| 5 | Texture Reveal — 6s Hook | Job ID: `e45b2077-7811-475f-b759-06f7202c9a6f` (see Higgsfield generations) |
+| # | Angle | Asset | Reference |
+|---|---|---|---|
+| 5 | Texture Reveal — 6s Hook | Job ID: `8c7ff0ec-e331-49b2-9e7d-6c3bf53f5587` (see Higgsfield generations) | Packshot 1 (closed angled) |
 
 ---
 
