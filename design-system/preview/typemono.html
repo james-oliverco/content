@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Mono / annotations</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 24px 28px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 18px; }
+  .eye  { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .block { border-top: var(--oc-hairline); padding-top: 12px; }
+  .anno { font-family: var(--oc-font-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--oc-stone); }
+  .big-mono { font-family: var(--oc-font-mono); font-size: 14px; color: var(--oc-graphite); margin-top: 4px; }
+  .index { font-family: var(--oc-font-mono); font-feature-settings: "tnum"; font-size: 11px; color: var(--oc-stone); letter-spacing: 0.02em; }
+  .stack { display: flex; flex-direction: column; gap: 6px; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="eye">Mono · Geist Mono · technical voice</div>
+    <div class="eye">No. 03 / 04</div>
+  </div>
+
+  <div class="grid">
+    <div class="block">
+      <div class="anno">— Coordinate</div>
+      <div class="big-mono">51.5074° N · 0.1278° W</div>
+    </div>
+    <div class="block">
+      <div class="anno">— Edition</div>
+      <div class="big-mono">EDITION No. 02 / 04</div>
+    </div>
+    <div class="block">
+      <div class="anno">— Specification</div>
+      <div class="big-mono">WASTEA® · LOT 04 / 24</div>
+    </div>
+    <div class="block">
+      <div class="anno">— Index</div>
+      <div class="stack">
+        <div class="index">001 · Compact wallet</div>
+        <div class="index">002 · Card holder</div>
+        <div class="index">003 · Note wallet</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
