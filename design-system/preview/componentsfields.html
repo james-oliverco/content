@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Form fields</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 28px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 22px; }
+  .eye  { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 28px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  label { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oc-stone); }
+  .input {
+    font-family: var(--oc-font-sans);
+    font-size: 14px;
+    color: var(--oc-ink);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--oc-graphite);
+    padding: 10px 0 8px 0;
+    outline: none;
+  }
+  .input::placeholder { color: var(--oc-putty); }
+  .input:focus { border-bottom-color: var(--oc-ink); }
+  .check { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--oc-graphite); }
+  .check .box { width: 14px; height: 14px; border: 1px solid var(--oc-graphite); display:inline-block; }
+  .check .box.on { background: var(--oc-ink); position: relative; }
+  .check .box.on::after { content: ""; position:absolute; left: 3px; top: 1px; width: 4px; height: 8px; border: solid var(--oc-bone); border-width: 0 1px 1px 0; transform: rotate(45deg); }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="eye">Form · underlined</div>
+    <div class="eye">Restrained</div>
+  </div>
+  <div class="grid">
+    <div class="field"><label>— Email</label><input class="input" placeholder="name@studio.com" /></div>
+    <div class="field"><label>— Personalisation</label><input class="input" placeholder="Up to 3 characters" maxlength="3" /></div>
+    <div class="field"><label>— Material</label><input class="input" value="WASTEA® · Forest Green" /></div>
+    <div class="field" style="gap: 12px;">
+      <label>— Preferences</label>
+      <div class="check"><span class="box on"></span> Subscribe to material studies</div>
+      <div class="check"><span class="box"></span> Receive edition releases</div>
+    </div>
+  </div>
+</body>
+</html>

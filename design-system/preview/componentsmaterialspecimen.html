@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Material specimen</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 24px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .frame {
+    display: grid; grid-template-columns: 260px 1fr; gap: 28px;
+    border-top: 1px solid var(--oc-graphite); padding-top: 16px;
+  }
+  .swatch {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    background: var(--oc-pitch);
+  }
+  .swatch img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .swatch .corner {
+    position: absolute; width: 8px; height: 8px;
+    border-left: 0.5px solid rgba(242,238,230,0.55);
+    border-top:  0.5px solid rgba(242,238,230,0.55);
+  }
+  .swatch .corner.tl { top: 8px; left: 8px; }
+  .swatch .corner.tr { top: 8px; right: 8px; transform: scaleX(-1); }
+  .swatch .corner.bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
+  .swatch .corner.br { bottom: 8px; right: 8px; transform: scale(-1,-1); }
+  .swatch .id-tag {
+    position: absolute; left: 10px; bottom: 10px;
+    font-family: var(--oc-font-mono); font-size: 9px; letter-spacing: 0.18em;
+    color: rgba(242,238,230,0.85); text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  .swatch .axis-tag {
+    position: absolute; right: 10px; top: 10px;
+    font-family: var(--oc-font-mono); font-size: 9px; letter-spacing: 0.18em;
+    color: rgba(242,238,230,0.7); text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  .swatch .divider-label {
+    position: absolute; left: 50%; bottom: 10px;
+    transform: translateX(-50%);
+    display: flex; gap: 18px;
+    font-family: var(--oc-font-mono); font-size: 8.5px; letter-spacing: 0.22em;
+    color: rgba(242,238,230,0.7); text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  .swatch .divider-label span:first-child { transform: translateX(-58px); }
+  .swatch .divider-label span:last-child  { transform: translateX(58px); }
+
+  .meta { display: grid; grid-template-columns: 90px 1fr; gap: 6px 12px; align-content: start; }
+  .k { font-family: var(--oc-font-mono); font-size: 10px; color: var(--oc-stone); letter-spacing: 0.14em; text-transform: uppercase; }
+  .v { font-family: var(--oc-font-mono); font-size: 11px; color: var(--oc-graphite); }
+  .title { font-family: var(--oc-font-sans); font-weight: 300; font-size: 28px; letter-spacing: -0.012em; line-height: 1.05; margin-bottom: 4px; }
+  .sub { font-family: var(--oc-font-mono); font-size: 10px; color: var(--oc-stone); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+  .caption {
+    margin-top: 18px;
+    font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.04em;
+    color: var(--oc-stone); line-height: 1.5; max-width: 42ch;
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <div class="swatch">
+    <img src="../assets/specimen-wastea-01.jpg" alt="Macro study: dried tea leaves alongside finished WASTEA® hide in forest." />
+    <span class="corner tl"></span>
+    <span class="corner tr"></span>
+    <span class="corner bl"></span>
+    <span class="corner br"></span>
+    <span class="axis-tag">MACRO · 1:1</span>
+    <span class="id-tag">SPEC · WT-04 / 24</span>
+    <span class="divider-label">
+      <span>— Source</span>
+      <span>Hide —</span>
+    </span>
+  </div>
+
+  <div>
+    <div class="sub">— Material study no. 01</div>
+    <div class="title">WASTEA® · Forest</div>
+    <div class="meta">
+      <div class="k">— Origin</div><div class="v">Turkey · Anatolia</div>
+      <div class="k">— Bio</div><div class="v">65% bio-content</div>
+      <div class="k">— Base</div><div class="v">Recycled polyester canvas</div>
+      <div class="k">— Lot</div><div class="v">04 / 24</div>
+      <div class="k">— Use</div><div class="v">Compact wallet · Card holder</div>
+    </div>
+    <div class="caption">
+      Macro pairing — dried Anatolian tea leaves at left; the resulting hide,
+      finished in forest, at right. Surface evolves with use.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

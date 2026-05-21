@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Product card · Collection</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 24px 28px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 18px; }
+  .eye  { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 24px; }
+  .card { display: flex; flex-direction: column; gap: 12px; }
+  .img {
+    aspect-ratio: 4 / 5;
+    background-color: #ECECEC;
+    border: var(--oc-hairline);
+    position: relative; overflow: hidden;
+    isolation: isolate;
+    padding: 10% 8%;
+    box-sizing: border-box;
+  }
+  .img img {
+    position: relative;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  /* faint material grain overlay so packshots feel like part of the system */
+  .img::after {
+    content: ""; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 220px 220px;
+    mix-blend-mode: multiply;
+    opacity: 0.10;
+    pointer-events: none;
+  }
+  /* On-image annotations: very subtle, recede to the photograph */
+  .anno {
+    position: absolute; left: 10px; top: 10px;
+    font-family: var(--oc-font-mono); font-size: 8px;
+    letter-spacing: 0.20em; text-transform: uppercase;
+    color: rgba(58, 61, 64, 0.55);
+  }
+  .idx {
+    position: absolute; right: 10px; bottom: 10px;
+    font-family: var(--oc-font-mono); font-size: 8px;
+    letter-spacing: 0.10em;
+    color: rgba(58, 61, 64, 0.45);
+  }
+  .meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 2px;
+  }
+  /* Below-image hierarchy: name is the loudest mark, price quiet, desc tiny */
+  .name  { font-family: var(--oc-font-sans); font-weight: 400; font-size: 17px; letter-spacing: -0.005em; line-height: 1.2; }
+  .price { font-family: var(--oc-font-mono); font-size: 12px; color: var(--oc-graphite); }
+  .desc  { font-family: var(--oc-font-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+
+  /* Colourway swatches — ticks of available finishes per product */
+  .ways { display: flex; gap: 6px; align-items: center; margin-top: 2px; }
+  .way {
+    width: 12px; height: 12px;
+    border: 0.5px solid rgba(58, 61, 64, 0.30);
+    border-radius: 999px;
+    position: relative;
+  }
+  .way.is-on { box-shadow: 0 0 0 1px var(--oc-ink); border-color: var(--oc-ink); }
+  .ways .count {
+    font-family: var(--oc-font-mono); font-size: 9px;
+    letter-spacing: 0.10em;
+    color: var(--oc-stone);
+    margin-left: 4px;
+  }
+  /* Colourway palette */
+  .way.forest  { background: #2A3A2C; }
+  .way.coastal { background: #3E5366; }
+  .way.pitch   { background: #1a1a1a; }
+  .way.cedar   { background: #6B4F2E; }
+  .way.ochre   { background: #8E5A3B; }
+  .way.bone    { background: #ECE7DC; }
+  .way.moss    { background: #5A6244; }
+  .way.tannin  { background: #8a4a2a; }
+
+  .meta-foot {
+    margin-top: 22px; padding-top: 14px;
+    border-top: var(--oc-hairline);
+    display: flex; justify-content: space-between; gap: 16px;
+    font-family: var(--oc-font-mono); font-size: 10px;
+    letter-spacing: 0.04em; color: var(--oc-stone);
+  }
+  .meta-foot .note { max-width: 56ch; line-height: 1.55; text-transform: none; letter-spacing: 0; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="eye">Components · Product card · Collection grid</div>
+    <div class="eye">No. 06 / 12</div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="img">
+        <img src="../assets/imagery/compact-wallet-forest.jpg" alt="Compact Wallet" />
+        <span class="anno">— WASTEA® · Forest</span>
+        <span class="idx">001 / 06</span>
+      </div>
+      <div class="meta"><div class="name">Compact Wallet</div><div class="price">£ 95</div></div>
+      <div class="ways">
+        <span class="way forest is-on"></span>
+        <span class="way cedar"></span>
+        <span class="way pitch"></span>
+        <span class="count">3 colourways</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img">
+        <img src="../assets/imagery/card-holder-coastal-blue.jpg" alt="Slim Card Holder" />
+        <span class="anno">— Apple Lthr · Coastal</span>
+        <span class="idx">002 / 06</span>
+      </div>
+      <div class="meta"><div class="name">Slim Card Holder</div><div class="price">£ 65</div></div>
+      <div class="ways">
+        <span class="way coastal is-on"></span>
+        <span class="way pitch"></span>
+        <span class="way ochre"></span>
+        <span class="way bone"></span>
+        <span class="count">4 colourways</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img">
+        <img src="../assets/imagery/billfold-forest-open.png" alt="Bifold Wallet — Forest" />
+        <span class="anno">— Apple Lthr · Forest</span>
+        <span class="idx">003 / 06</span>
+      </div>
+      <div class="meta"><div class="name">Bifold Wallet</div><div class="price">£ 110</div></div>
+      <div class="ways">
+        <span class="way forest is-on"></span>
+        <span class="way pitch"></span>
+        <span class="count">2 colourways</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img">
+        <img src="../assets/imagery/card-holder-pitch-open.png" alt="Card Holder — Pitch" />
+        <span class="anno">— Apple Lthr · Pitch</span>
+        <span class="idx">004 / 06</span>
+      </div>
+      <div class="meta"><div class="name">Card Holder</div><div class="price">£ 75</div></div>
+      <div class="ways">
+        <span class="way pitch is-on"></span>
+        <span class="way forest"></span>
+        <span class="way coastal"></span>
+        <span class="way cedar"></span>
+        <span class="count">4 colourways</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img">
+        <img src="../assets/imagery/washbag.png" alt="Washbag" />
+        <span class="anno">— rPET · Pitch</span>
+        <span class="idx">005 / 06</span>
+      </div>
+      <div class="meta"><div class="name">Washbag</div><div class="price">£ 145</div></div>
+      <div class="ways">
+        <span class="way pitch is-on"></span>
+        <span class="way moss"></span>
+        <span class="count">2 colourways</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img">
+        <img src="../assets/imagery/tote.png" alt="Tote Bag" />
+        <span class="anno">— rPET · Pitch</span>
+        <span class="idx">006 / 06</span>
+      </div>
+      <div class="meta"><div class="name">Tote Bag</div><div class="price">£ 195</div></div>
+      <div class="ways">
+        <span class="way pitch is-on"></span>
+        <span class="way bone"></span>
+        <span class="way coastal"></span>
+        <span class="count">3 colourways</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="meta-foot">
+    <span>— Collection grid · 6-up</span>
+    <span class="note">Packshots are presented uniformly on near-white surfaces with a faint multiply grain unifying the catalogue with the rest of the system. Annotations sit in graphite, not white, so they read as scientific labelling rather than UI chrome.</span>
+    <span>OC · 2026</span>
+  </div>
+</body>
+</html>

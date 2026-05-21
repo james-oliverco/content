@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Tags & badges</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 28px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 18px; }
+  .eye  { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 18px; }
+
+  .chip {
+    font-family: var(--oc-font-mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 6px 12px; border: 1px solid var(--oc-graphite);
+    color: var(--oc-graphite); background: transparent; border-radius: 999px;
+  }
+  .chip.solid { background: var(--oc-ink); color: var(--oc-bone); border-color: var(--oc-ink); }
+  .chip.muted { border-color: var(--oc-ash); color: var(--oc-stone); }
+  .chip.material { border-color: var(--oc-tannin); color: var(--oc-tannin); }
+  .chip.kelp { border-color: var(--oc-kelp); color: var(--oc-kelp); }
+
+  .badge {
+    font-family: var(--oc-font-mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 4px 8px; border: 1px solid currentColor; color: var(--oc-graphite);
+    border-radius: 0;
+  }
+  .badge.dot::before { content: "●"; margin-right: 6px; color: inherit; font-size: 8px; }
+  .badge.in-stock { color: var(--oc-moss); }
+  .badge.low { color: var(--oc-clay); }
+  .badge.oos { color: var(--oc-stone); }
+</style>
+</head>
+<body>
+  <div class="head"><div class="eye">Tags / Chips · pill</div><div class="eye">No. 01</div></div>
+  <div class="row">
+    <span class="chip solid">All</span>
+    <span class="chip">Wallets</span>
+    <span class="chip">Card holders</span>
+    <span class="chip">Travel</span>
+    <span class="chip muted">Sleeves</span>
+  </div>
+  <div class="row">
+    <span class="chip material">— WASTEA®</span>
+    <span class="chip kelp">— Forest Green</span>
+    <span class="chip">— Apple Leather</span>
+    <span class="chip muted">— MIRUM®</span>
+  </div>
+
+  <div class="head" style="margin-top: 24px;"><div class="eye">Status badges · square</div><div class="eye">No. 02</div></div>
+  <div class="row">
+    <span class="badge dot in-stock">In stock</span>
+    <span class="badge dot low">Low stock</span>
+    <span class="badge dot oos">Out of stock</span>
+    <span class="badge">EDITION 02 / 04</span>
+    <span class="badge">B-CORP CERTIFIED</span>
+  </div>
+</body>
+</html>
