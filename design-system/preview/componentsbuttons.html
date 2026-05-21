@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 28px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 22px; }
+  .eye  { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 28px; }
+  .cell { display:flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .lab { font-family: var(--oc-font-mono); font-size: 10px; color: var(--oc-stone); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .btn {
+    font-family: var(--oc-font-sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 14px 22px;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: opacity 260ms cubic-bezier(0.22,0.61,0.36,1), background 260ms;
+    border: 1px solid var(--oc-ink);
+    background: var(--oc-ink);
+    color: var(--oc-bone);
+  }
+  .btn--ghost { background: transparent; color: var(--oc-ink); }
+  .btn--text  { background: transparent; color: var(--oc-ink); border: none; padding: 6px 0; border-bottom: 1px solid var(--oc-graphite); border-radius: 0; }
+  .btn:hover { opacity: 0.7; }
+  .btn:active { opacity: 0.55; }
+  .btn[disabled] { color: var(--oc-putty); border-color: var(--oc-putty); background: transparent; cursor: not-allowed; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="eye">Buttons</div>
+    <div class="eye">Primary · Ghost · Text</div>
+  </div>
+  <div class="grid">
+    <div class="cell"><button class="btn">ADD TO CART</button><div class="lab">Primary · Ink</div></div>
+    <div class="cell"><button class="btn btn--ghost">VIEW MATERIAL</button><div class="lab">Ghost · Outline</div></div>
+    <div class="cell"><button class="btn btn--text">Read the study ↗</button><div class="lab">Text · Underline</div></div>
+    <div class="cell"><button class="btn" disabled>OUT OF STOCK</button><div class="lab">Disabled</div></div>
+  </div>
+</body>
+</html>

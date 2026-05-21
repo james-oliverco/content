@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Logo</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--oc-bone); display: grid; place-items: center; min-height: 240px; padding: 32px; box-sizing: border-box; font-family: var(--oc-font-sans); }
+  .row { display: flex; align-items: center; gap: 56px; flex-wrap: wrap; justify-content: center; }
+  .mark { font-family: var(--oc-font-sans); font-weight: 400; letter-spacing: 0.20em; font-size: 22px; color: var(--oc-ink); line-height: 1; }
+  .mark.small { font-size: 13px; letter-spacing: 0.22em; }
+  .mark.inv { background: var(--oc-ink); color: var(--oc-bone); padding: 10px 14px; }
+  /* Stacked lockup: “CO” sits beneath “OLIVER”, left-aligned, same tracking. */
+  .stack { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 0.92; }
+  .stack .l1,
+  .stack .l2 {
+    font-family: var(--oc-font-sans); font-weight: 400;
+    font-size: 26px; letter-spacing: 0.20em; color: var(--oc-ink);
+  }
+  .stack .l2 { margin-top: 6px; }
+  .stack.inv { background: var(--oc-ink); padding: 16px 18px 14px 18px; }
+  .stack.inv .l1, .stack.inv .l2 { color: var(--oc-bone); }
+  .stack.small .l1, .stack.small .l2 { font-size: 14px; letter-spacing: 0.22em; }
+  .stack.small .l2 { margin-top: 3px; }
+  .anno { font-family: var(--oc-font-mono); font-size: 10px; color: var(--oc-stone); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 8px; text-align: center; }
+  .cell { display: flex; flex-direction: column; align-items: center; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="cell">
+      <div class="mark">OLIVER CO</div>
+      <div class="anno">Wordmark · Primary</div>
+    </div>
+    <div class="cell">
+      <div class="mark inv">OLIVER CO</div>
+      <div class="anno">Inverted · Ink</div>
+    </div>
+    <div class="cell">
+      <div class="mark small">OLIVER CO</div>
+      <div class="anno">Small · 13 / 0.22em</div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 56px;">
+    <div class="cell">
+      <div class="stack">
+        <span class="l1">OLIVER</span>
+        <span class="l2">CO</span>
+      </div>
+      <div class="anno">Stacked · Primary</div>
+    </div>
+    <div class="cell">
+      <div class="stack inv">
+        <span class="l1">OLIVER</span>
+        <span class="l2">CO</span>
+      </div>
+      <div class="anno">Stacked · Inverted</div>
+    </div>
+    <div class="cell">
+      <div class="stack small">
+        <span class="l1">OLIVER</span>
+        <span class="l2">CO</span>
+      </div>
+      <div class="anno">Stacked · Small</div>
+    </div>
+  </div>
+</body>
+</html>

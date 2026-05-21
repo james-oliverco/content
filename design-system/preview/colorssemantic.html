@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Semantic colors</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 24px 28px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 12px; }
+  .eye  { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+
+  .row {
+    display: grid;
+    grid-template-columns: 32px 1fr 160px 110px;
+    align-items: center; gap: 16px;
+    padding: 12px 0;
+    border-bottom: var(--oc-hairline);
+  }
+  .row:last-child { border-bottom: none; }
+
+  .chip {
+    width: 28px; height: 28px;
+    border: var(--oc-hairline);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .chip::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 220px 220px;
+    mix-blend-mode: multiply;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  .chip.dark::after { mix-blend-mode: screen; opacity: 0.10; }
+
+  .token { font-family: var(--oc-font-mono); font-size: 12px; color: var(--oc-graphite); }
+  .use { font-family: var(--oc-font-sans); font-size: 13px; color: var(--oc-stone); }
+  .hex { font-family: var(--oc-font-mono); font-size: 11px; color: var(--oc-stone); text-align: right; }
+
+  .meta-foot {
+    margin-top: 18px;
+    font-family: var(--oc-font-mono); font-size: 10px;
+    letter-spacing: 0.04em; color: var(--oc-stone);
+    display: flex; justify-content: space-between; gap: 16px;
+  }
+  .meta-foot .note { max-width: 64ch; line-height: 1.55; text-transform: none; letter-spacing: 0; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="eye">Semantic tokens · Cool / Clinical</div>
+    <div class="eye">No. 03 / 03</div>
+  </div>
+
+  <div class="row"><div class="chip"      style="background:#F4F5F6"></div><div class="token">--oc-bg</div>         <div class="use">Primary surface</div><div class="hex">#F4F5F6</div></div>
+  <div class="row"><div class="chip"      style="background:#E9EBEC"></div><div class="token">--oc-bg-alt</div>     <div class="use">Secondary surface</div><div class="hex">#E9EBEC</div></div>
+  <div class="row"><div class="chip dark" style="background:#16181A"></div><div class="token">--oc-bg-deep</div>    <div class="use">Photographic black</div><div class="hex">#16181A</div></div>
+  <div class="row"><div class="chip dark" style="background:#16181A"></div><div class="token">--oc-fg</div>         <div class="use">Headlines</div><div class="hex">#16181A</div></div>
+  <div class="row"><div class="chip"      style="background:#7B8085"></div><div class="token">--oc-fg-muted</div>   <div class="use">Captions, mono anno</div><div class="hex">#7B8085</div></div>
+  <div class="row"><div class="chip"      style="background:#A9ADB1"></div><div class="token">--oc-fg-faint</div>   <div class="use">Disabled, hint</div><div class="hex">#A9ADB1</div></div>
+  <div class="row"><div class="chip"      style="background:#D2D5D7"></div><div class="token">--oc-rule</div>       <div class="use">Hairline divider</div><div class="hex">#D2D5D7</div></div>
+
+  <div class="meta-foot">
+    <span>— Cool greys · faint blue cast</span>
+    <span class="note">Tokens map directly to the cool neutral scale. The faint grain on each chip carries through any surface where depth is desired — a quiet material cue against the otherwise clinical white.</span>
+    <span>OC · 2026</span>
+  </div>
+</body>
+</html>
