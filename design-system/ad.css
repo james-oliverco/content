@@ -1,0 +1,383 @@
+@import url("./colors_and_type.css");
+
+/* ============================================================
+   Oliver Co — Ad campaign (WASTEA® bifold)
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.ad {
+  position: relative;
+  font-family: var(--oc-font-sans);
+  color: var(--oc-ink);
+  background: var(--oc-bone);
+  overflow: hidden;
+  font-feature-settings: "ss01","kern";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* shared atoms ------------------------------------------------ */
+.mono   { font-family: var(--oc-font-mono); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; }
+.eyebrow{ font-family: var(--oc-font-sans); font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; }
+.wordmark { font-family: var(--oc-font-sans); font-weight: 400; letter-spacing: 0.32em; text-transform: uppercase; }
+
+.rule { display:block; height:1px; background: var(--oc-graphite); width:100%; }
+.rule-faint { display:block; height:1px; background: var(--oc-ash); width:100%; }
+
+.grain::after {
+  content:"";
+  position:absolute; inset:0; pointer-events:none;
+  background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  opacity:.25;
+}
+
+/* ============================================================
+   AD 01 — Magazine spread  (1600 × 1000)
+   ============================================================ */
+.ad-spread {
+  width: 1600px; height: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ad-spread .left {
+  position: relative;
+  padding: 64px 72px 56px 72px;
+  display: flex; flex-direction: column;
+}
+.ad-spread .right {
+  position: relative;
+  background: var(--oc-paper);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.ad-spread .right img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  display:block;
+  filter: contrast(1.02) saturate(0.96);
+}
+
+.ad-spread .top-row {
+  display:flex; justify-content: space-between; align-items: baseline;
+  color: var(--oc-stone);
+  font-size: 11px;
+}
+.ad-spread .wordmark { color: var(--oc-ink); font-size: 13px; letter-spacing: 0.32em; }
+
+.ad-spread .headline {
+  margin-top: auto;
+  font-weight: 300;
+  font-size: 132px;
+  line-height: 0.92;
+  letter-spacing: -0.022em;
+  color: var(--oc-ink);
+  text-wrap: balance;
+}
+.ad-spread .headline em {
+  font-style: italic; font-weight: 300;
+  color: var(--oc-tannin);
+}
+.ad-spread .sub {
+  margin-top: 36px;
+  max-width: 460px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--oc-graphite);
+}
+
+.ad-spread .specs {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--oc-graphite);
+}
+.ad-spread .specs > div {
+  padding: 16px 16px 0 0;
+  border-right: 1px solid var(--oc-ash);
+}
+.ad-spread .specs > div:last-child { border-right: 0; }
+.ad-spread .specs .k {
+  font-family: var(--oc-font-mono);
+  font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--oc-stone);
+  margin-bottom: 8px;
+}
+.ad-spread .specs .v {
+  font-family: var(--oc-font-sans);
+  font-weight: 400; font-size: 16px;
+  color: var(--oc-ink);
+}
+
+.ad-spread .bottom-row {
+  margin-top: 32px;
+  display:flex; justify-content:space-between; align-items:center;
+  color: var(--oc-stone); font-size: 11px;
+}
+.ad-spread .cta {
+  display:inline-flex; align-items:center; gap: 14px;
+  font-family: var(--oc-font-sans); font-weight: 500;
+  font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--oc-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--oc-ink);
+  padding-bottom: 6px;
+}
+
+/* image-side annotations */
+.ad-spread .annot {
+  position: absolute;
+  font-family: var(--oc-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oc-stone);
+  display:flex; align-items:center; gap:10px;
+}
+.ad-spread .annot::before {
+  content:""; display:block; width: 28px; height:1px; background: var(--oc-stone);
+}
+.ad-spread .annot.tr { top: 64px; right: 56px; }
+.ad-spread .annot.tr::before { order: 2; }
+.ad-spread .annot.br { bottom: 56px; right: 56px; }
+.ad-spread .annot.br::before { order: 2; }
+.ad-spread .annot.bl { bottom: 56px; left: 56px; }
+
+/* corner crop ticks */
+.ad-spread .tick {
+  position:absolute; width: 14px; height: 14px; pointer-events:none;
+  border-color: var(--oc-stone);
+}
+.ad-spread .tick.tl { top: 24px; left: 24px; border-top: 1px solid; border-left: 1px solid; }
+.ad-spread .tick.tr { top: 24px; right: 24px; border-top: 1px solid; border-right: 1px solid; }
+.ad-spread .tick.bl { bottom: 24px; left: 24px; border-bottom: 1px solid; border-left: 1px solid; }
+.ad-spread .tick.br { bottom: 24px; right: 24px; border-bottom: 1px solid; border-right: 1px solid; }
+
+
+/* ============================================================
+   AD 02 — Square social (1080 × 1080)
+   ============================================================ */
+.ad-square {
+  width: 1080px; height: 1080px;
+  background: var(--oc-bone);
+  position: relative;
+}
+.ad-square .img-wrap {
+  position: absolute; inset: 0;
+}
+.ad-square .img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  display:block;
+}
+
+.ad-square .chrome {
+  position: absolute; inset: 40px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  pointer-events:none;
+}
+.ad-square .chrome .row {
+  display:flex; justify-content: space-between; align-items: baseline;
+  color: var(--oc-stone);
+  font-family: var(--oc-font-mono);
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.ad-square .chrome .row .wordmark {
+  color: var(--oc-ink);
+  font-family: var(--oc-font-sans);
+  font-size: 14px; letter-spacing: 0.36em;
+}
+.ad-square .center {
+  align-self: end;
+  justify-self: start;
+  padding-bottom: 8px;
+  max-width: 620px;
+}
+.ad-square .center .eyebrow {
+  font-size: 11px;
+  color: var(--oc-stone);
+  margin-bottom: 18px;
+}
+.ad-square .center .h {
+  font-weight: 300;
+  font-size: 86px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--oc-ink);
+}
+.ad-square .center .h em {
+  font-style: italic; font-weight: 300; color: var(--oc-tannin);
+}
+
+.ad-square .bottom-row {
+  align-self: end;
+  grid-column: 1 / -1;
+}
+
+/* hairline crop frame */
+.ad-square .frame {
+  position:absolute; inset: 28px;
+  border: 1px solid rgba(22,24,26,0.18);
+  pointer-events:none;
+}
+
+
+/* ============================================================
+   AD 03 — Poster (900 × 1280)
+   ============================================================ */
+.ad-poster {
+  width: 900px; height: 1280px;
+  background: var(--oc-ink);
+  color: var(--oc-bone);
+  position: relative;
+  padding: 56px 56px 48px;
+  display:flex; flex-direction:column;
+}
+.ad-poster .top {
+  display:flex; justify-content:space-between; align-items: baseline;
+  color: var(--oc-putty);
+  font-family: var(--oc-font-mono);
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.ad-poster .top .wordmark {
+  color: var(--oc-bone); font-family: var(--oc-font-sans);
+  font-size: 14px; letter-spacing: 0.36em;
+}
+
+.ad-poster .hero {
+  margin-top: 64px;
+  font-weight: 300;
+  font-size: 102px;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--oc-bone);
+}
+.ad-poster .hero em {
+  font-style: italic; font-weight: 300; color: var(--oc-clay);
+}
+
+.ad-poster .image {
+  margin-top: 36px;
+  position: relative;
+  flex: 1 1 auto;
+  background: var(--oc-pitch);
+  overflow: hidden;
+}
+.ad-poster .image img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  display:block;
+  filter: brightness(0.92) contrast(1.06);
+  mix-blend-mode: lighten;
+}
+.ad-poster .image .label {
+  position:absolute; left: 24px; bottom: 20px;
+  color: var(--oc-putty);
+  font-family: var(--oc-font-mono);
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.ad-poster .image .label-r {
+  position:absolute; right: 24px; top: 20px;
+  color: var(--oc-putty);
+  font-family: var(--oc-font-mono);
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+.ad-poster .foot {
+  margin-top: 28px;
+  display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--oc-graphite);
+  padding-top: 16px;
+}
+.ad-poster .foot > div {
+  padding-right: 16px;
+}
+.ad-poster .foot .k {
+  font-family: var(--oc-font-mono); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--oc-putty); margin-bottom: 8px;
+}
+.ad-poster .foot .v {
+  font-family: var(--oc-font-sans); font-weight: 400;
+  color: var(--oc-bone); font-size: 15px; line-height: 1.4;
+}
+
+/* ============================================================
+   AD 04 — Story (720 × 1280)
+   ============================================================ */
+.ad-story {
+  width: 720px; height: 1280px;
+  background: var(--oc-bone);
+  position: relative;
+  overflow: hidden;
+}
+.ad-story .img {
+  position: absolute; left: 0; right: 0; top: 0;
+  height: 760px;
+  overflow: hidden;
+  background: var(--oc-paper);
+}
+.ad-story .img img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 52%;
+  display:block;
+}
+.ad-story .img::after {
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px; height: 220px;
+  background: linear-gradient(180deg, rgba(244,245,246,0) 0%, rgba(244,245,246,1) 90%);
+}
+
+.ad-story .head {
+  position: absolute; top: 44px; left: 40px; right: 40px;
+  display:flex; justify-content: space-between; align-items: baseline;
+  color: var(--oc-stone);
+  font-family: var(--oc-font-mono);
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.ad-story .head .wordmark {
+  color: var(--oc-ink); font-family: var(--oc-font-sans);
+  font-size: 13px; letter-spacing: 0.36em;
+}
+
+.ad-story .body {
+  position: absolute;
+  left: 40px; right: 40px; bottom: 40px;
+  display: flex; flex-direction: column; gap: 28px;
+}
+.ad-story .body .eyebrow {
+  color: var(--oc-stone); font-size: 11px;
+}
+.ad-story .body h2 {
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 0.95;
+  letter-spacing: -0.018em;
+  color: var(--oc-ink);
+  text-wrap: balance;
+}
+.ad-story .body h2 em { font-style: italic; font-weight: 300; color: var(--oc-tannin); }
+.ad-story .body p {
+  max-width: 520px;
+  color: var(--oc-graphite);
+  font-size: 15px; line-height: 1.55;
+}
+.ad-story .body .meta {
+  display:flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--oc-graphite); padding-top: 16px;
+  color: var(--oc-stone);
+  font-family: var(--oc-font-mono);
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.ad-story .body .meta .cta {
+  color: var(--oc-ink);
+  font-family: var(--oc-font-sans);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 12px;
+  border-bottom: 1px solid var(--oc-ink);
+  padding-bottom: 4px;
+}

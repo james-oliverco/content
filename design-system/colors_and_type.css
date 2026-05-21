@@ -1,0 +1,210 @@
+/* =========================================================================
+   Oliver Co — Colors & Type
+   Warm blacks, deep natural tones, restrained typography.
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&display=swap");
+
+/* ---- Aeonik (TRIAL) — primary sans ----------------------------------- */
+@font-face { font-family: "Aeonik"; src: url("fonts/AeonikTRIAL-Air.otf")     format("opentype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aeonik"; src: url("fonts/AeonikTRIAL-Light.otf")   format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aeonik"; src: url("fonts/AeonikTRIAL-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aeonik"; src: url("fonts/AeonikTRIAL-Medium.otf")  format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aeonik"; src: url("fonts/AeonikTRIAL-Bold.otf")    format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aeonik"; src: url("fonts/AeonikTRIAL-Black.otf")   format("opentype"); font-weight: 900; font-style: normal; font-display: swap; }
+
+:root {
+  /* ---- Color · Neutrals (cool · clinical) ------------------------------
+     Whites and greys with a faint cool cast. Reads science / innovation
+     while remaining quiet. Subtle grain may be applied on surfaces for
+     material depth (see preview/colors-neutrals.html). */
+  --oc-bone:        #F4F5F6;   /* paper / primary surface — near white */
+  --oc-paper:       #E9EBEC;   /* secondary surface */
+  --oc-ash:         #D2D5D7;   /* divider tone */
+  --oc-putty:       #A9ADB1;   /* muted text on bone */
+  --oc-stone:       #7B8085;   /* mid-tone, captions */
+  --oc-graphite:    #3A3D40;   /* body on bone */
+  --oc-ink:         #16181A;   /* near-black, headlines */
+  --oc-pitch:       #08090A;   /* deepest */
+
+  /* ---- Color · Atmospheric / accents ----------------------------------- */
+  /* ---- Color · Material accents (earthy) ------------------------------- */
+  --oc-kelp:        #2A3A2C;   /* forest green — product accent */
+  --oc-tannin:      #6B4F2E;   /* warm tea/leather brown */
+  --oc-clay:        #8E5A3B;   /* burnt clay */
+  --oc-moss:        #5A6244;   /* low-saturation green */
+  --oc-fog:         rgba(22, 24, 26, 0.06);  /* translucent overlay */
+  --oc-vapor:       rgba(244, 245, 246, 0.7);
+
+  /* ---- Semantic surfaces ----------------------------------------------- */
+  --oc-bg:          var(--oc-bone);
+  --oc-bg-alt:      var(--oc-paper);
+  --oc-bg-deep:     var(--oc-ink);
+  --oc-fg:          var(--oc-ink);
+  --oc-fg-muted:    var(--oc-stone);
+  --oc-fg-faint:    var(--oc-putty);
+  --oc-fg-on-deep:  var(--oc-bone);
+  --oc-rule:        var(--oc-ash);
+  --oc-rule-strong: var(--oc-graphite);
+
+  /* ---- Type · families -------------------------------------------------- */
+  --oc-font-sans:   "Aeonik", "Söhne", "Inter", system-ui, sans-serif;
+  --oc-font-mono:   "Geist Mono", "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ---- Type · scale (1920 reference) ----------------------------------- */
+  --oc-fs-micro:    10px;   /* tracked annotations */
+  --oc-fs-anno:     12px;   /* mono annotations */
+  --oc-fs-caption:  13px;
+  --oc-fs-body:     16px;
+  --oc-fs-lead:     20px;
+  --oc-fs-h6:       16px;
+  --oc-fs-h5:       20px;
+  --oc-fs-h4:       28px;
+  --oc-fs-h3:       40px;
+  --oc-fs-h2:       64px;
+  --oc-fs-h1:       96px;
+  --oc-fs-display:  144px;
+
+  /* ---- Type · weights / tracking --------------------------------------- */
+  --oc-w-light:     300;
+  --oc-w-regular:   400;
+  --oc-w-medium:    500;
+  --oc-w-semibold:  600;
+
+  --oc-track-tight:  -0.02em;
+  --oc-track-normal: 0;
+  --oc-track-wide:   0.08em;
+  --oc-track-extra:  0.18em;   /* logo-style wide tracking */
+
+  /* ---- Spacing (4px base) ---------------------------------------------- */
+  --oc-s-1:  4px;
+  --oc-s-2:  8px;
+  --oc-s-3:  12px;
+  --oc-s-4:  16px;
+  --oc-s-5:  24px;
+  --oc-s-6:  32px;
+  --oc-s-7:  48px;
+  --oc-s-8:  64px;
+  --oc-s-9:  96px;
+  --oc-s-10: 128px;
+  --oc-s-11: 192px;
+
+  /* ---- Radii (restrained) ---------------------------------------------- */
+  --oc-r-none:  0;
+  --oc-r-xs:    1px;
+  --oc-r-sm:    2px;
+  --oc-r-md:    4px;
+  --oc-r-pill:  999px;
+
+  /* ---- Borders / shadows / motion -------------------------------------- */
+  --oc-border:        1px solid var(--oc-rule);
+  --oc-border-strong: 1px solid var(--oc-graphite);
+  --oc-hairline:      0.5px solid var(--oc-rule);
+
+  --oc-shadow-soft:  0 1px 2px rgba(14, 16, 20, 0.04), 0 8px 24px rgba(14, 16, 20, 0.05);
+  --oc-shadow-lift:  0 2px 6px rgba(14, 16, 20, 0.06), 0 24px 64px rgba(14, 16, 20, 0.10);
+  --oc-shadow-inset: inset 0 0 0 1px rgba(14, 16, 20, 0.06);
+
+  --oc-ease:        cubic-bezier(0.22, 0.61, 0.36, 1);
+  --oc-dur-quick:   140ms;
+  --oc-dur-base:    260ms;
+  --oc-dur-slow:    520ms;
+}
+
+/* ===== Element resets — opt-in via .oc-type ============================ */
+.oc-type {
+  font-family: var(--oc-font-sans);
+  font-size: var(--oc-fs-body);
+  line-height: 1.5;
+  color: var(--oc-fg);
+  background: var(--oc-bg);
+  font-feature-settings: "ss01", "ss02", "kern";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Display / headlines -------------------------------------------------- */
+.oc-display {
+  font-family: var(--oc-font-sans);
+  font-weight: var(--oc-w-light);
+  font-size: var(--oc-fs-display);
+  line-height: 0.92;
+  letter-spacing: var(--oc-track-tight);
+  color: var(--oc-fg);
+}
+
+.oc-h1 { font-family: var(--oc-font-sans); font-weight: 300; font-size: var(--oc-fs-h1); line-height: 0.96; letter-spacing: -0.018em; }
+.oc-h2 { font-family: var(--oc-font-sans); font-weight: 300; font-size: var(--oc-fs-h2); line-height: 1.02;  letter-spacing: -0.012em; }
+.oc-h3 { font-family: var(--oc-font-sans); font-weight: 400; font-size: var(--oc-fs-h3); line-height: 1.10;  letter-spacing: -0.006em; }
+.oc-h4 { font-family: var(--oc-font-sans); font-weight: 400; font-size: var(--oc-fs-h4); line-height: 1.20;  letter-spacing: -0.004em; }
+.oc-h5 { font-family: var(--oc-font-sans); font-weight: 500; font-size: var(--oc-fs-h5); line-height: 1.30; }
+.oc-h6 { font-family: var(--oc-font-sans); font-weight: 500; font-size: var(--oc-fs-h6); line-height: 1.40; }
+
+/* ---- Body / paragraph ----------------------------------------------------- */
+.oc-lead {
+  font-family: var(--oc-font-sans);
+  font-weight: 400;
+  font-size: var(--oc-fs-lead);
+  line-height: 1.45;
+  color: var(--oc-fg);
+}
+
+.oc-body {
+  font-family: var(--oc-font-sans);
+  font-weight: 400;
+  font-size: var(--oc-fs-body);
+  line-height: 1.55;
+  color: var(--oc-fg);
+}
+
+.oc-caption {
+  font-family: var(--oc-font-sans);
+  font-weight: 400;
+  font-size: var(--oc-fs-caption);
+  line-height: 1.45;
+  color: var(--oc-fg-muted);
+}
+
+/* ---- Mono / technical voice ----------------------------------------------- */
+.oc-mono {
+  font-family: var(--oc-font-mono);
+  font-weight: 400;
+  font-size: var(--oc-fs-anno);
+  letter-spacing: 0;
+  color: var(--oc-fg-muted);
+}
+
+.oc-anno {
+  font-family: var(--oc-font-mono);
+  font-weight: 400;
+  font-size: var(--oc-fs-anno);
+  letter-spacing: 0.04em;
+  color: var(--oc-fg-muted);
+  text-transform: uppercase;
+}
+
+/* widely-tracked uppercase eyebrow / nav / button */
+.oc-eyebrow {
+  font-family: var(--oc-font-sans);
+  font-weight: 500;
+  font-size: var(--oc-fs-micro);
+  letter-spacing: var(--oc-track-extra);
+  text-transform: uppercase;
+  color: var(--oc-fg-muted);
+}
+
+.oc-logo-mark {
+  font-family: var(--oc-font-sans);
+  font-weight: 400;
+  letter-spacing: var(--oc-track-extra);
+  text-transform: uppercase;
+}
+
+/* ---- Index / coordinate-style numerals ----------------------------------- */
+.oc-index {
+  font-family: var(--oc-font-mono);
+  font-feature-settings: "tnum";
+  font-weight: 400;
+  font-size: var(--oc-fs-anno);
+  color: var(--oc-fg-muted);
+}

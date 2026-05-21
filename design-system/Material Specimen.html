@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Oliver Co — Specimen No. 04 · WASTEA®</title>
+<link rel="stylesheet" href="colors_and_type.css" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--oc-bone); }
+  body {
+    font-family: var(--oc-font-sans);
+    color: var(--oc-graphite);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02", "kern";
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ===== Page chrome ====================================================== */
+  .page {
+    min-height: 100vh;
+    padding: 32px 56px 96px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Faint grid overlay — felt, not seen */
+  .page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(22,24,26,0.035) 1px, transparent 1px);
+    background-size: calc(100% / 12) 100%;
+    z-index: 0;
+  }
+
+  .page > * { position: relative; z-index: 1; }
+
+  /* ===== Top bar — archive index ========================================== */
+  .topbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: baseline;
+    gap: 32px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--oc-ash);
+  }
+  .topbar__cell { display: flex; flex-direction: column; gap: 6px; }
+  .topbar__cell .oc-eyebrow { color: var(--oc-putty); }
+  .topbar__cell .val {
+    font-family: var(--oc-font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--oc-graphite);
+    text-transform: uppercase;
+  }
+  .topbar__cell.right { text-align: right; align-items: flex-end; }
+
+  /* ===== Header band ====================================================== */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: end;
+    padding: 96px 0 64px;
+    border-bottom: 0.5px solid var(--oc-ash);
+  }
+  .header__lede { display: flex; flex-direction: column; gap: 24px; }
+  .header__eyebrow {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    color: var(--oc-stone);
+  }
+  .header__eyebrow .oc-anno { color: var(--oc-stone); }
+  .header__eyebrow .rule {
+    flex: 1;
+    height: 0.5px;
+    background: var(--oc-ash);
+    transform: translateY(-3px);
+  }
+  .display {
+    font-weight: 200;
+    font-size: clamp(56px, 7.6vw, 128px);
+    line-height: 0.92;
+    letter-spacing: -0.022em;
+    color: var(--oc-ink);
+  }
+  .display em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--oc-kelp);
+  }
+
+  .header__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-end;
+    text-align: right;
+    padding-bottom: 12px;
+  }
+  .header__meta .lede {
+    max-width: 38ch;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--oc-graphite);
+    text-align: right;
+  }
+  .header__meta .marks {
+    display: flex;
+    gap: 32px;
+    color: var(--oc-stone);
+  }
+
+  /* ===== Specimen plate =================================================== */
+  .plate-wrap {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .plate {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--oc-pitch);
+    overflow: hidden;
+  }
+  .plate__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: contrast(1.02) saturate(0.96);
+  }
+  /* Light film grain via repeating subtle gradient */
+  .plate::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(8,9,10,0.35) 100%);
+    pointer-events: none;
+  }
+
+  /* Vertical separator marker over the existing seam in the photo */
+  .plate__seam {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 0.5px;
+    background: rgba(244,245,246,0.18);
+    pointer-events: none;
+  }
+  .plate__seam-cap {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(244,245,246,0.85);
+    font-family: var(--oc-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: rgba(8,9,10,0.4);
+    padding: 4px 8px;
+    border: 0.5px solid rgba(244,245,246,0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .plate__seam-cap.top { top: 24px; }
+  .plate__seam-cap.bot { bottom: 24px; }
+
+  /* Corner annotations */
+  .plate__anno {
+    position: absolute;
+    color: rgba(244,245,246,0.78);
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .plate__anno .tick {
+    width: 14px;
+    height: 0.5px;
+    background: rgba(244,245,246,0.6);
+  }
+  .plate__anno.tl { top: 24px; left: 24px; }
+  .plate__anno.tr { top: 24px; right: 24px; flex-direction: row-reverse; text-align: right; }
+  .plate__anno.bl { bottom: 24px; left: 24px; }
+  .plate__anno.br { bottom: 24px; right: 24px; flex-direction: row-reverse; text-align: right; }
+
+  /* Specimen labels — A / B */
+  .plate__label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(244,245,246,0.92);
+    font-family: var(--oc-font-sans);
+    font-weight: 300;
+    font-size: 96px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 24px rgba(0,0,0,0.45);
+    opacity: 0.92;
+  }
+  .plate__label sub {
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    vertical-align: 0.6em;
+    margin-left: 6px;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+  .plate__label.A { left: 24px; bottom: 64px; top: auto; transform: none; }
+  .plate__label.B { right: 24px; bottom: 64px; top: auto; transform: none; }
+
+  /* Caption strip beneath plate */
+  .plate-caption {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 32px;
+    padding-top: 16px;
+  }
+  .plate-caption__side {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .plate-caption__side.right { justify-content: flex-end; }
+  .plate-caption__num {
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--oc-stone);
+    text-transform: uppercase;
+  }
+  .plate-caption__label {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--oc-graphite);
+  }
+  .plate-caption__center {
+    font-family: var(--oc-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oc-putty);
+  }
+
+  /* ===== Specs grid ======================================================= */
+  .specs {
+    margin-top: 96px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    border-top: 1px solid var(--oc-graphite);
+    padding-top: 32px;
+  }
+  .specs__head {
+    grid-column: 1 / span 3;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .specs__head .num {
+    font-family: var(--oc-font-mono);
+    font-size: 64px;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    color: var(--oc-ink);
+    line-height: 1;
+  }
+  .specs__head .num sup {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    vertical-align: super;
+    color: var(--oc-stone);
+  }
+  .specs__head .title {
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    color: var(--oc-ink);
+    margin-top: 8px;
+  }
+  .specs__head .lede {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--oc-graphite);
+    max-width: 30ch;
+    margin-top: 12px;
+  }
+
+  .specs__body {
+    grid-column: 5 / span 8;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 64px;
+  }
+  .specs__col { display: flex; flex-direction: column; }
+  .spec-row {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 16px 0;
+    border-top: 0.5px solid var(--oc-ash);
+  }
+  .spec-row:last-child { border-bottom: 0.5px solid var(--oc-ash); }
+  .spec-row dt {
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--oc-stone);
+  }
+  .spec-row dd {
+    font-family: var(--oc-font-sans);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--oc-ink);
+    letter-spacing: -0.005em;
+  }
+  .spec-row dd .unit {
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--oc-stone);
+    text-transform: uppercase;
+    margin-left: 6px;
+  }
+
+  /* ===== Process strip ==================================================== */
+  .process {
+    margin-top: 96px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 0.5px solid var(--oc-ash);
+    border-bottom: 0.5px solid var(--oc-ash);
+  }
+  .process__step {
+    padding: 32px 24px 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-right: 0.5px solid var(--oc-ash);
+    padding-left: 24px;
+  }
+  .process__step:first-child { padding-left: 0; }
+  .process__step:last-child { border-right: 0; }
+  .process__step .num {
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oc-stone);
+  }
+  .process__step .title {
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--oc-ink);
+    letter-spacing: -0.005em;
+    margin-top: 8px;
+  }
+  .process__step .body {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--oc-graphite);
+    max-width: 28ch;
+  }
+
+  /* ===== Swatch row ======================================================= */
+  .swatches {
+    margin-top: 96px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) repeat(4, 88px);
+    gap: 32px;
+    align-items: end;
+  }
+  .swatches__head {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .swatches__head .title {
+    font-weight: 300;
+    font-size: 28px;
+    letter-spacing: -0.005em;
+    color: var(--oc-ink);
+  }
+  .swatches__head .body {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--oc-graphite);
+    max-width: 44ch;
+  }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .swatch__chip {
+    width: 88px;
+    height: 88px;
+    box-shadow: inset 0 0 0 0.5px rgba(22,24,26,0.12);
+  }
+  .swatch__name {
+    font-family: var(--oc-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--oc-stone);
+  }
+  .swatch__hex {
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    color: var(--oc-graphite);
+  }
+
+  /* ===== Foot bar ========================================================= */
+  .footbar {
+    margin-top: 96px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--oc-ash);
+    align-items: baseline;
+  }
+  .footbar__cell {
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--oc-stone);
+  }
+  .footbar__cell.center { text-align: center; }
+  .footbar__cell.right { text-align: right; }
+  .footbar__cell .accent { color: var(--oc-graphite); }
+
+  /* ===== Wordmark mark ==================================================== */
+  .mark {
+    font-family: var(--oc-font-sans);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oc-ink);
+    font-size: 13px;
+  }
+  .mark .reg {
+    font-family: var(--oc-font-mono);
+    font-size: 9px;
+    vertical-align: super;
+    margin-left: 2px;
+    color: var(--oc-stone);
+  }
+
+  @media (max-width: 1024px) {
+    .page { padding: 24px 24px 64px; }
+    .topbar { grid-template-columns: 1fr 1fr; row-gap: 16px; }
+    .header { grid-template-columns: 1fr; gap: 32px; padding: 48px 0 32px; }
+    .header__meta { align-items: flex-start; text-align: left; }
+    .header__meta .lede { text-align: left; }
+    .specs__head, .specs__body { grid-column: 1 / -1; }
+    .specs__body { grid-template-columns: 1fr; column-gap: 0; }
+    .process { grid-template-columns: 1fr 1fr; }
+    .process__step:nth-child(2) { border-right: 0; }
+    .process__step:nth-child(3) { padding-left: 0; }
+    .swatches { grid-template-columns: repeat(4, 1fr); }
+    .swatches__head { grid-column: 1 / -1; }
+    .plate__label { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ========== TOP BAR ========== -->
+    <div class="topbar">
+      <div class="topbar__cell">
+        <span class="mark">Oliver Co<span class="reg">®</span></span>
+        <span class="oc-eyebrow">Material archive</span>
+      </div>
+      <div class="topbar__cell">
+        <span class="oc-eyebrow">Document</span>
+        <span class="val">MS · 04 / 24</span>
+      </div>
+      <div class="topbar__cell right">
+        <span class="oc-eyebrow">Coordinates</span>
+        <span class="val">51.5074° N · 0.1278° W</span>
+      </div>
+      <div class="topbar__cell right">
+        <span class="oc-eyebrow">Filed</span>
+        <span class="val">09.05.26 · 14:52 GMT</span>
+      </div>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="header__lede">
+        <div class="header__eyebrow">
+          <span class="oc-anno">— Specimen no. 04</span>
+          <span class="rule"></span>
+          <span class="oc-anno">WASTEA® · Lot 04 / 24</span>
+        </div>
+        <h1 class="display">Surface,<br /><em>evolving.</em></h1>
+      </div>
+      <div class="header__meta">
+        <p class="lede">
+          A specimen study comparing the unprocessed leaf source — Camellia sinensis,
+          spent — with its finished, hand-finished bio-coated surface. Pressed,
+          stabilised, and bonded onto a recycled polyester canvas in Istanbul.
+        </p>
+        <div class="marks">
+          <span class="oc-anno">— Material study</span>
+          <span class="oc-anno">No. 02 / 03</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== SPECIMEN PLATE ========== -->
+    <section class="plate-wrap">
+      <figure class="plate">
+        <img class="plate__img" src="assets/specimen-wastea-01.jpg" alt="Specimen No. 04 — waste tea leaves and finished WASTEA® surface" />
+
+        <span class="plate__anno tl"><span class="tick"></span>Source · Camellia sinensis</span>
+        <span class="plate__anno tr">Finish · Bio-PU coating<span class="tick"></span></span>
+        <span class="plate__anno bl"><span class="tick"></span>Macro · 1:1 · 90 mm</span>
+        <span class="plate__anno br">Hue · Kelp / 2A3A2C<span class="tick"></span></span>
+
+        <span class="plate__label A">A<sub>SOURCE</sub></span>
+        <span class="plate__label B">B<sub>SURFACE</sub></span>
+
+        <span class="plate__seam"></span>
+        <span class="plate__seam-cap top">— Section</span>
+        <span class="plate__seam-cap bot">02 / 02</span>
+      </figure>
+
+      <div class="plate-caption">
+        <div class="plate-caption__side">
+          <span class="plate-caption__num">FIG. A</span>
+          <span class="plate-caption__label">Spent tea leaves, dried and graded.</span>
+        </div>
+        <div class="plate-caption__center">— Specimen comparison · plate 04 —</div>
+        <div class="plate-caption__side right">
+          <span class="plate-caption__label">WASTEA® finished surface · Kelp.</span>
+          <span class="plate-caption__num">FIG. B</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SPECIFICATIONS ========== -->
+    <section class="specs">
+      <div class="specs__head">
+        <div class="num">04<sup>/24</sup></div>
+        <h2 class="title">Formed through reduction.</h2>
+        <p class="lede">
+          A premium bio-based leather alternative co-developed exclusively for
+          Oliver Co. Engineered for longevity. Renewable by design.
+        </p>
+      </div>
+
+      <div class="specs__body">
+        <dl class="specs__col">
+          <div class="spec-row"><dt>— Origin</dt><dd>Anatolia · Turkey</dd></div>
+          <div class="spec-row"><dt>— Bio-content</dt><dd>65<span class="unit">% by mass</span></dd></div>
+          <div class="spec-row"><dt>— Base substrate</dt><dd>Recycled polyester canvas</dd></div>
+          <div class="spec-row"><dt>— Top coating</dt><dd>Bio-PU · waste tea leaves</dd></div>
+          <div class="spec-row"><dt>— Thickness</dt><dd>0.9 – 1.1<span class="unit">mm</span></dd></div>
+        </dl>
+        <dl class="specs__col">
+          <div class="spec-row"><dt>— Tensile</dt><dd>≥ 180<span class="unit">N · ISO 3376</span></dd></div>
+          <div class="spec-row"><dt>— Abrasion</dt><dd>50,000<span class="unit">cycles · Martindale</span></dd></div>
+          <div class="spec-row"><dt>— Lightfastness</dt><dd>Grade 5<span class="unit">ISO 105-B02</span></dd></div>
+          <div class="spec-row"><dt>— Hand</dt><dd>Supple · low-sheen · soft drape</dd></div>
+          <div class="spec-row"><dt>— Care</dt><dd>Soft damp cloth · air dry</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ========== PROCESS ========== -->
+    <section class="process">
+      <div class="process__step">
+        <span class="num">— 01 · Source</span>
+        <h3 class="title">Spent leaves, recovered.</h3>
+        <p class="body">
+          Tea leaves recovered post-brew from supply partners across the UK
+          and Anatolia. Sun-dried, graded, and milled.
+        </p>
+      </div>
+      <div class="process__step">
+        <span class="num">— 02 · Bind</span>
+        <h3 class="title">Bound in bio-resin.</h3>
+        <p class="body">
+          Milled leaf is suspended in a partly bio-derived polyurethane and
+          drawn to consistent thickness on a calender line.
+        </p>
+      </div>
+      <div class="process__step">
+        <span class="num">— 03 · Bond</span>
+        <h3 class="title">Bonded to recycled base.</h3>
+        <p class="body">
+          The composite is fused to a recycled polyester canvas substrate,
+          cured at low temperature in a solar-powered facility.
+        </p>
+      </div>
+      <div class="process__step">
+        <span class="num">— 04 · Finish</span>
+        <h3 class="title">Hand-finished surface.</h3>
+        <p class="body">
+          A final embossing and matte hand-finish develops the grain.
+          Inspected, indexed, and released against lot 04 / 24.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== COLOURWAYS ========== -->
+    <section class="swatches">
+      <div class="swatches__head">
+        <span class="oc-anno">— Colourways</span>
+        <h3 class="title">Issued in four natural tones.</h3>
+        <p class="body">
+          Pigmented through the bio-resin layer rather than printed. Each
+          surface continues to settle and deepen with use.
+        </p>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#2A3A2C"></div>
+        <span class="swatch__name">— Kelp</span>
+        <span class="swatch__hex">#2A3A2C</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#6B4F2E"></div>
+        <span class="swatch__name">— Tannin</span>
+        <span class="swatch__hex">#6B4F2E</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#8E5A3B"></div>
+        <span class="swatch__name">— Clay</span>
+        <span class="swatch__hex">#8E5A3B</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#16181A"></div>
+        <span class="swatch__name">— Pitch</span>
+        <span class="swatch__hex">#16181A</span>
+      </div>
+    </section>
+
+    <!-- ========== FOOT BAR ========== -->
+    <footer class="footbar">
+      <div class="footbar__cell">
+        <span>— Photographed</span> <span class="accent">London · studio 02</span>
+      </div>
+      <div class="footbar__cell center">
+        — Document released for review · not for production —
+      </div>
+      <div class="footbar__cell right">
+        <span class="accent">Oliver Co<span class="reg">®</span></span> · Material archive · MS / 04
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
