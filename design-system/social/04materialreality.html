@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Social · A Material Reality</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; background: #2a2a26; height: 100vh; width: 100vw; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
+  .stage { position: relative; }
+  .post {
+    position: absolute; inset: 0;
+    width: 1080px; height: 1350px;
+    transform-origin: top left;
+    overflow: hidden;
+    background: #1a221c;
+    font-family: var(--oc-font-sans);
+    color: var(--oc-bone);
+  }
+
+  /* ===== Photographic field ===== */
+  .photo { position: absolute; inset: 0; }
+  .photo img {
+    position: absolute; inset: -2%;
+    width: 104%; height: 104%;
+    object-fit: cover; display: block;
+    filter: saturate(0.82) brightness(1.08) blur(1.2px);
+  }
+  .photo .haze {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(180,200,180,0.10) 0%, rgba(20,30,24,0.18) 60%, rgba(10,18,14,0.34) 100%),
+      radial-gradient(120% 90% at 18% 22%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.30) 100%);
+    pointer-events: none;
+  }
+  .photo .grain {
+    position: absolute; inset: 0; opacity: 0.20; mix-blend-mode: overlay; pointer-events: none;
+  }
+
+  /* ===== Type primitives ===== */
+  .mono { font-family: var(--oc-font-mono); }
+  .upper { text-transform: uppercase; }
+
+  /* ===== Vertical spine — left edge ===== */
+  .spine {
+    position: absolute;
+    left: 40px; top: 120px;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    /* after rotation, this acts like a baseline running up the left edge */
+    width: 1110px;
+    display: flex; align-items: baseline; gap: 32px;
+    font-family: var(--oc-font-mono); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(244,245,246,0.75);
+    white-space: nowrap;
+  }
+  .spine .dot { width: 4px; height: 4px; background: rgba(244,245,246,0.6); border-radius: 999px; display: inline-block; }
+  .spine .strong { color: var(--oc-bone); letter-spacing: 0.38em; }
+
+  /* ===== Top-right archival registration ===== */
+  .reg {
+    position: absolute; top: 40px; right: 40px;
+    text-align: right;
+    font-family: var(--oc-font-mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(244,245,246,0.60);
+    line-height: 1.7;
+  }
+  .reg b { color: var(--oc-bone); font-weight: 500; letter-spacing: 0.32em; display: block; margin-bottom: 8px; }
+  .reg em { font-style: normal; color: rgba(244,245,246,0.45); }
+
+  /* ===== Headline — top-left zone, asymmetric ===== */
+  .head {
+    position: absolute;
+    top: 226px; left: 96px;
+    width: 540px;
+  }
+  .head .eyebrow {
+    font-family: var(--oc-font-mono); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(244,245,246,0.70);
+    margin-bottom: 22px;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .head .eyebrow::before {
+    content: ""; width: 56px; height: 0.5px; background: rgba(244,245,246,0.45);
+  }
+  .head h1 {
+    margin: 0;
+    font-family: var(--oc-font-sans);
+    font-weight: 300;
+    font-size: 96px;
+    line-height: 0.92;
+    letter-spacing: -0.024em;
+    color: var(--oc-bone);
+    text-wrap: balance;
+  }
+  .head h1 i {
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(244,245,246,0.78);
+  }
+
+  /* ===== Body — narrow column pushed to the right edge, low on the canvas ===== */
+  .bodycol {
+    position: absolute;
+    top: 612px; right: 80px;
+    width: 280px;
+    font-family: var(--oc-font-mono);
+    font-size: 11px;
+    line-height: 1.85;
+    letter-spacing: 0.04em;
+    color: rgba(244,245,246,0.78);
+    text-align: justify;
+    text-justify: inter-word;
+    text-transform: uppercase;
+  }
+  .bodycol::before {
+    content: ""; display: block;
+    width: 32px; height: 0.5px; background: rgba(244,245,246,0.55);
+    margin-bottom: 14px;
+  }
+  .bodycol .hi { color: var(--oc-bone); }
+
+  /* ===== Rotated discovery caption — sits along the right edge, mid-frame ===== */
+  .sidecap {
+    position: absolute;
+    top: 526px; right: 18px;
+    transform: rotate(90deg);
+    transform-origin: top right;
+    font-family: var(--oc-font-mono); font-size: 10px;
+    letter-spacing: 0.42em; text-transform: uppercase;
+    color: rgba(244,245,246,0.55);
+    white-space: nowrap;
+  }
+
+  /* ===== Pulled quote — set low-left, slim measure ===== */
+  .pull {
+    position: absolute;
+    left: 96px; bottom: 240px;
+    width: 360px;
+    font-family: var(--oc-font-sans);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.18;
+    letter-spacing: -0.008em;
+    color: var(--oc-bone);
+    text-wrap: pretty;
+  }
+  .pull i { font-style: italic; color: rgba(244,245,246,0.82); }
+  .pull .credit {
+    display: block; margin-top: 18px;
+    font-family: var(--oc-font-mono); font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(244,245,246,0.55);
+    font-weight: 400;
+  }
+
+  /* ===== Foot rail — full-width archival strip ===== */
+  .foot {
+    position: absolute;
+    left: 96px; right: 80px; bottom: 56px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--oc-font-mono); font-size: 10px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: rgba(244,245,246,0.55);
+    padding-top: 14px;
+    border-top: 0.5px solid rgba(244,245,246,0.18);
+  }
+  .foot .mark { font-family: var(--oc-font-sans); font-weight: 500; letter-spacing: 0.32em; color: var(--oc-bone); font-size: 12px; }
+
+  /* ===== Tiny registration ticks — discovered, not balanced ===== */
+  .ticks { position: absolute; inset: 0; pointer-events: none; }
+</style>
+</head>
+<body>
+  <div class="stage">
+  <div class="post">
+
+    <!-- Photographic field -->
+    <div class="photo">
+      <img src="../assets/imagery/tea-leaves.png" alt="Macro field of recovered tea-leaf fibre" />
+      <div class="haze"></div>
+      <svg class="grain" viewBox="0 0 1080 1350" preserveAspectRatio="none">
+        <defs>
+          <filter id="mrG">
+            <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2" seed="6"/>
+            <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.20 0"/>
+          </filter>
+        </defs>
+        <rect width="1080" height="1350" filter="url(#mrG)"/>
+      </svg>
+    </div>
+
+    <!-- Discovered registration marks -->
+    <svg class="ticks" viewBox="0 0 1080 1350" preserveAspectRatio="none">
+      <g stroke="rgba(244,245,246,0.55)" stroke-width="0.5" fill="none">
+        <!-- corner crosshair, top-left, set in from spine -->
+        <line x1="78" y1="120" x2="92" y2="120"/>
+        <line x1="78" y1="120" x2="78" y2="134"/>
+        <!-- mid-frame tick on the right -->
+        <line x1="1024" y1="612" x2="1040" y2="612"/>
+        <!-- low-left baseline tick -->
+        <line x1="96" y1="980" x2="120" y2="980"/>
+      </g>
+      <g stroke="rgba(244,245,246,0.16)" stroke-width="0.5" fill="none" stroke-dasharray="1 5">
+        <!-- vertical hairline aligned to bodycol left edge -->
+        <line x1="800" y1="612" x2="800" y2="980"/>
+      </g>
+    </svg>
+
+    <!-- Vertical spine (rotated) along the left edge -->
+    <div class="spine">
+      <span class="strong">Oliver&nbsp;Co.</span>
+      <span class="dot"></span>
+      <span>Material Index</span>
+      <span class="dot"></span>
+      <span>Wastea® · Lot 04 / 26</span>
+      <span class="dot"></span>
+      <span>Anatolia · LDN</span>
+      <span class="dot"></span>
+      <span>Filed 05 / 26</span>
+    </div>
+
+    <!-- Top-right archival registration -->
+    <div class="reg">
+      <b>No. 01 / 04</b>
+      Specimen · WT-04<br/>
+      Macro · 1:1<br/>
+      <em>Filed&nbsp;—&nbsp;12.05.26</em>
+    </div>
+
+    <!-- Headline zone -->
+    <div class="head">
+      <div class="eyebrow">A Material Reality</div>
+      <h1>Our objects, <i>and</i> ourselves.</h1>
+    </div>
+
+    <!-- Rotated discovery caption along the right edge -->
+    <div class="sidecap">— Field study · recovered fibre · Anatolia</div>
+
+    <!-- Body column (texture, not paragraph) — pushed to right edge -->
+    <div class="bodycol">
+      The question of what kind of object we want cannot be divorced
+      from <span class="hi">nature,</span> from labour, or from use. What we recover
+      becomes what we carry. What we carry becomes how we live.
+      The right to a <span class="hi">long-lived object</span> is a freedom to repair,
+      to recover and remake — one of the quieter, most necessary rights.
+    </div>
+
+    <!-- Pulled quote, low-left -->
+    <div class="pull">
+      To <i>use</i>,<br/>
+      and to <i>return</i>.
+      <span class="credit">Manifest no. 01 — Wastea® · Forest</span>
+    </div>
+
+    <!-- Foot rail -->
+    <div class="foot">
+      <span>— Oliver Co · London · 51.5074° N</span>
+      <span class="mark">OLIVER&nbsp;CO</span>
+      <span>@oliverco.ldn</span>
+    </div>
+
+  </div>
+  </div>
+  <script>
+    (function fit() {
+      const stage = document.querySelector('.stage');
+      const post  = document.querySelector('.post');
+      const W = 1080, H = 1350;
+      function apply() {
+        const pad = 16;
+        const s = Math.min((window.innerWidth - pad*2) / W, (window.innerHeight - pad*2) / H);
+        stage.style.width  = (W * s) + 'px';
+        stage.style.height = (H * s) + 'px';
+        post.style.transform = 'scale(' + s + ')';
+      }
+      apply();
+      window.addEventListener('resize', apply);
+    })();
+  </script>
+</body>
+</html>

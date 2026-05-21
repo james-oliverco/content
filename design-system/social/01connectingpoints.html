@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Social · Material observations</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; background: #2a2a26; }
+  .post {
+    width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    background: #0e0b08;
+    margin: 0 auto;
+    font-family: var(--oc-font-sans);
+    color: var(--oc-bone);
+  }
+
+  /* ============ Backdrop ============ */
+  .photo { position: absolute; inset: 0; background: #0e0b08; }
+  .photo img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Asymmetric tone — top sits quieter (clean negative space for final line),
+     bottom retains more organic detail (where "RECOVERED LEAVES." anchors). */
+  .photo .tone {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(8,6,4,0.78) 0%,
+        rgba(8,6,4,0.48) 22%,
+        rgba(8,6,4,0.22) 48%,
+        rgba(8,6,4,0.10) 72%,
+        rgba(8,6,4,0.30) 100%),
+      radial-gradient(140% 90% at 65% 35%, rgba(8,6,4,0) 0%, rgba(8,6,4,0.35) 100%);
+    pointer-events: none;
+  }
+  .grain { position: absolute; inset: 0; opacity: 0.30; mix-blend-mode: overlay; pointer-events: none; }
+
+  /* ============ Metadata rails ============ */
+  .meta {
+    position: absolute;
+    font-family: var(--oc-font-mono); font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(242,238,230,0.55);
+  }
+  .meta--tl { left: 56px;  top: 56px; }
+  .meta--tr { right: 56px; top: 56px; }
+  .meta--bl { left: 56px;  bottom: 56px; }
+  .meta--br { right: 56px; bottom: 56px; }
+
+  .wordmark {
+    position: absolute; left: 0; right: 0; top: 56px;
+    text-align: center;
+    font-family: var(--oc-font-sans); font-weight: 400;
+    font-size: 14px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(242,238,230,0.85);
+  }
+
+  /* ============ Statements — each lives independently ============ */
+  .obs {
+    position: absolute;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .obs__idx {
+    font-family: var(--oc-font-mono); font-size: 11px;
+    letter-spacing: 0.20em; text-transform: uppercase;
+    color: rgba(242,238,230,0.55);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .obs__idx::before {
+    content: ""; display: inline-block;
+    width: 28px; height: 1px; background: rgba(242,238,230,0.45);
+  }
+  .obs__line {
+    font-family: var(--oc-font-sans);
+    font-weight: 400;
+    font-size: 30px; line-height: 1.05;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--oc-bone);
+    max-width: 360px;
+    text-wrap: balance;
+  }
+
+  /* Hierarchy by placement — each statement breathes alone */
+  .obs.o-04 { top: 198px;  right: 56px; align-items: flex-end; text-align: right; }
+  .obs.o-04 .obs__line { max-width: 340px; }
+  .obs.o-04 .obs__idx { flex-direction: row-reverse; }
+  .obs.o-04 .obs__idx::before { background: rgba(242,238,230,0.55); }
+
+  .obs.o-03 { top: 530px;  left: 56px;  }
+  .obs.o-03 .obs__line { max-width: 560px; font-size: 32px; letter-spacing: 0.05em; }
+
+  .obs.o-02 { top: 808px;  right: 56px; align-items: flex-end; text-align: right; }
+  .obs.o-02 .obs__idx { flex-direction: row-reverse; }
+
+  .obs.o-01 { top: 1050px; left: 56px; }
+  .obs.o-01 .obs__line {
+    font-size: 36px; letter-spacing: 0.04em;
+    color: var(--oc-bone);
+  }
+
+  /* ============ Subtle technical anchors — recede behind type ============ */
+  .anchors { position: absolute; inset: 0; }
+
+  /* Crosshair tick used at the foot of each statement */
+  .tick {
+    position: absolute;
+    width: 9px; height: 9px;
+    border-left: 0.5px solid rgba(242,238,230,0.40);
+    border-bottom:0.5px solid rgba(242,238,230,0.40);
+  }
+</style>
+</head>
+<body>
+  <div class="post">
+
+    <!-- Backdrop -->
+    <div class="photo">
+      <img src="../assets/social-leaves-01.png" alt="Macro of dried tea leaves" />
+      <div class="tone"></div>
+      <svg class="grain" viewBox="0 0 1080 1350" preserveAspectRatio="none">
+        <defs>
+          <filter id="cpGrain">
+            <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2" seed="5"/>
+            <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0"/>
+          </filter>
+        </defs>
+        <rect width="1080" height="1350" filter="url(#cpGrain)"/>
+      </svg>
+    </div>
+
+    <!-- Secondary technical layer: very subtle hairline anchors -->
+    <svg class="anchors" viewBox="0 0 1080 1350" preserveAspectRatio="none">
+      <!-- one quiet vertical scale line on the left margin -->
+      <line x1="56" y1="180" x2="56" y2="1170"
+            stroke="rgba(242,238,230,0.10)" stroke-width="0.5"
+            stroke-dasharray="1 6"/>
+      <!-- tiny registration marks at each statement row -->
+      <g stroke="rgba(242,238,230,0.30)" stroke-width="0.5" fill="none">
+        <line x1="56"   y1="230"  x2="74"   y2="230"/>
+        <line x1="1024" y1="230"  x2="1006" y2="230"/>
+
+        <line x1="56"   y1="562"  x2="74"   y2="562"/>
+        <line x1="1024" y1="562"  x2="1006" y2="562"/>
+
+        <line x1="56"   y1="840"  x2="74"   y2="840"/>
+        <line x1="1024" y1="840"  x2="1006" y2="840"/>
+
+        <line x1="56"   y1="1086" x2="74"   y2="1086"/>
+        <line x1="1024" y1="1086" x2="1006" y2="1086"/>
+      </g>
+    </svg>
+
+    <!-- Wordmark + metadata -->
+    <div class="wordmark">Wastea®</div>
+    <div class="meta meta--tl">— No. 01 / 04</div>
+    <div class="meta meta--tr">2026 · LDN</div>
+
+    <!-- 01 — top of frame -->
+    <div class="obs o-04">
+      <div class="obs__idx">No. 01</div>
+      <div class="obs__line">Recovered leaves.</div>
+    </div>
+
+    <!-- 02 — mid-frame -->
+    <div class="obs o-03">
+      <div class="obs__idx">No. 02</div>
+      <div class="obs__line">Processed into fibre.</div>
+    </div>
+
+    <!-- 03 — single line, mid-lower -->
+    <div class="obs o-02">
+      <div class="obs__idx">No. 03</div>
+      <div class="obs__line">Developed into a material surface.</div>
+    </div>
+
+    <!-- 04 — base of frame -->
+    <div class="obs o-01">
+      <div class="obs__idx">No. 04</div>
+      <div class="obs__line">Designed for everyday objects.</div>
+    </div>
+
+    <!-- Foot rails -->
+    <div class="meta meta--bl">— LOT 04 / 24 · WASTEA®</div>
+    <div class="meta meta--br">@OLIVERCO.LDN</div>
+  </div>
+</body>
+</html>

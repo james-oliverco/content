@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Social · Numbered callouts</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; background: #2a2a26; }
+  .post {
+    width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    margin: 0 auto;
+    font-family: var(--oc-font-sans);
+    background: var(--oc-bone);
+    color: var(--oc-ink);
+  }
+  .photo {
+    position: absolute; left: 0; right: 0; top: 0; height: 760px;
+    overflow: hidden;
+    background: #0a0603;
+  }
+  .photo img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .photo .tone {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10,6,3,0.45) 0%, rgba(10,6,3,0.15) 30%, rgba(10,6,3,0.0) 55%, rgba(244,245,246,0.85) 88%, var(--oc-bone) 100%);
+    pointer-events: none;
+  }
+  .photo svg.grain {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0.35; mix-blend-mode: overlay; pointer-events: none;
+  }
+  .topline {
+    position: absolute; top: 120px; left: 0; right: 0;
+    text-align: center;
+    font-family: var(--oc-font-sans); font-weight: 500;
+    font-size: 22px; letter-spacing: 0.22em; color: rgba(242,238,230,0.95);
+    text-transform: uppercase;
+  }
+  .topline .div { padding: 0 18px; opacity: 0.6; }
+
+  .meta-tl, .meta-tr {
+    position: absolute; top: 56px;
+    font-family: var(--oc-font-mono); font-size: 14px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(242,238,230,0.55);
+  }
+  .meta-tl { left: 56px; }
+  .meta-tr { right: 56px; }
+
+  .callouts {
+    position: absolute; left: 0; right: 0; top: 870px;
+    padding: 0 64px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px;
+  }
+  .callout .num {
+    font-family: var(--oc-font-mono); font-size: 28px;
+    color: var(--oc-ink); letter-spacing: 0.04em;
+    margin-bottom: 22px;
+  }
+  .callout .body {
+    font-family: var(--oc-font-sans); font-weight: 400;
+    font-size: 22px; line-height: 1.4; color: var(--oc-graphite);
+    text-wrap: pretty;
+  }
+  .footer {
+    position: absolute; bottom: 60px; left: 64px; right: 64px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--oc-font-mono); font-size: 13px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--oc-stone);
+  }
+  .footer .mark { font-family: var(--oc-font-sans); font-weight: 400; letter-spacing: 0.22em; font-size: 14px; color: var(--oc-ink); }
+</style>
+</head>
+<body>
+  <div class="post">
+    <div class="photo">
+      <img src="../assets/imagery/tea-leaves.png" alt="Macro of dried tea leaves" />
+      <div class="tone"></div>
+      <svg class="grain" viewBox="0 0 1080 760" preserveAspectRatio="none">
+        <defs>
+          <filter id="cGrain">
+            <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2" seed="2"/>
+            <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.16 0"/>
+          </filter>
+        </defs>
+        <rect width="1080" height="760" filter="url(#cGrain)"/>
+      </svg>
+    </div>
+
+    <div class="topline">SOOTHES&nbsp;<span class="div">|</span>&nbsp;BREATHES&nbsp;<span class="div">|</span>&nbsp;ENDURES</div>
+    <div class="meta-tl">— No. 01 / 03</div>
+    <div class="meta-tr">WASTEA® · LOT 04 / 24</div>
+
+    <div class="callouts">
+      <div class="callout">
+        <div class="num">[ 1 ]</div>
+        <div class="body">is a premium bio-based material co-developed exclusively for Oliver Co.</div>
+      </div>
+      <div class="callout">
+        <div class="num">[ 2 ]</div>
+        <div class="body">transforms waste tea leaves and recycled fibre into a refined, supple surface.</div>
+      </div>
+      <div class="callout">
+        <div class="num">[ 3 ]</div>
+        <div class="body">it is engineered for longevity — designed for repetition, made for the everyday.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>— OLIVER CO · LDN</span>
+      <span class="mark">OLIVER&nbsp;CO</span>
+      <span>2026 · NO. 01 / 03</span>
+    </div>
+  </div>
+</body>
+</html>
