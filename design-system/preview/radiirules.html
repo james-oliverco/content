@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Radii & rules</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 24px 28px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 18px; }
+  .eye  { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .cell { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .box { width: 80px; height: 56px; background: var(--oc-paper); border: 1px solid var(--oc-graphite); }
+  .tok { font-family: var(--oc-font-mono); font-size: 10px; color: var(--oc-stone); letter-spacing: 0.04em; text-transform: uppercase; }
+  .px { font-family: var(--oc-font-mono); font-size: 10px; color: var(--oc-graphite); }
+  hr { border: none; border-top: var(--oc-hairline); margin: 24px 0 16px 0; }
+  .rules { display:flex; flex-direction: column; gap: 14px; }
+  .rule-row { display: grid; grid-template-columns: 120px 1fr 80px; align-items: center; gap: 12px; }
+  .line { height: 1px; background: var(--oc-rule); }
+  .line.strong { background: var(--oc-graphite); }
+  .line.hair { background: var(--oc-rule); height: 0.5px; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="eye">Radii — restrained</div>
+    <div class="eye">Rules — hairline</div>
+  </div>
+  <div class="grid">
+    <div class="cell"><div class="box" style="border-radius:0"></div><div class="tok">--oc-r-none</div><div class="px">0 px</div></div>
+    <div class="cell"><div class="box" style="border-radius:1px"></div><div class="tok">--oc-r-xs</div><div class="px">1 px</div></div>
+    <div class="cell"><div class="box" style="border-radius:2px"></div><div class="tok">--oc-r-sm</div><div class="px">2 px</div></div>
+    <div class="cell"><div class="box" style="border-radius:4px"></div><div class="tok">--oc-r-md</div><div class="px">4 px</div></div>
+    <div class="cell"><div class="box" style="border-radius:999px; width:80px; height:32px;"></div><div class="tok">--oc-r-pill</div><div class="px">∞ (chips only)</div></div>
+  </div>
+  <hr/>
+  <div class="rules">
+    <div class="rule-row"><div class="tok">Hairline · 0.5px</div><div class="line hair"></div><div class="px">--oc-rule</div></div>
+    <div class="rule-row"><div class="tok">Standard · 1px</div><div class="line"></div><div class="px">--oc-rule</div></div>
+    <div class="rule-row"><div class="tok">Strong · 1px</div><div class="line strong"></div><div class="px">--oc-rule-strong</div></div>
+  </div>
+</body>
+</html>

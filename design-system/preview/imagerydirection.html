@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Imagery direction</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 0; font-family: var(--oc-font-sans); }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .tile {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    background: var(--oc-pitch);
+  }
+  .tile svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .tile .frame {
+    position: absolute; inset: 14px;
+    border: 0.5px solid rgba(242,238,230,0.18);
+    pointer-events: none;
+  }
+  .tile .lab-tl, .tile .lab-br {
+    position: absolute;
+    font-family: var(--oc-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(242,238,230,0.78);
+  }
+  .tile .lab-tl { left: 22px; top: 22px; }
+  .tile .lab-br { right: 22px; bottom: 22px; color: rgba(242,238,230,0.55); letter-spacing: 0.04em; }
+  .tile .crosshair {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-left: 0.5px solid rgba(242,238,230,0.4);
+    border-top:  0.5px solid rgba(242,238,230,0.4);
+  }
+  .tile .crosshair.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .tile .crosshair.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .tile .crosshair.br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+  .tile .crosshair.tl { top: 14px; left: 14px; }
+</style>
+
+<!-- Reusable filters / patterns -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- fine grain for warm photographic feel -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0.95
+                             0 0 0 0 0.93
+                             0 0 0 0 0.89
+                             0 0 0 0.18 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <!-- tea-leaf macro: stretched anisotropic fibres -->
+    <filter id="teaFibre">
+      <feTurbulence type="turbulence" baseFrequency="0.012 0.45" numOctaves="3" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.42
+                             0 0 0 0 0.32
+                             0 0 0 0 0.20
+                             0 0 0 1.6 -0.4"/>
+      <feComposite in="SourceGraphic" in2="prev" operator="over"/>
+    </filter>
+
+    <!-- moss / micro-organic clusters -->
+    <filter id="mossFibre">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0.18
+                             0 0 0 0 0.24
+                             0 0 0 0 0.16
+                             0 0 0 1.4 -0.35"/>
+    </filter>
+
+    <!-- leather grain: cellular -->
+    <filter id="grainTexture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="22"/>
+      <feDisplacementMap in="SourceGraphic" scale="6"/>
+      <feColorMatrix values="0 0 0 0 0.55
+                             0 0 0 0 0.36
+                             0 0 0 0 0.20
+                             0 0 0 1.2 -0.2"/>
+    </filter>
+
+    <!-- soft directional light -->
+    <radialGradient id="lightTea" cx="32%" cy="28%" r="80%">
+      <stop offset="0%"  stop-color="#7d5a3a" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#3a2818" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0d0905" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="lightKelp" cx="65%" cy="55%" r="85%">
+      <stop offset="0%"  stop-color="#3b4f3b" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#1c2620" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#070a08" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="lightTan" cx="35%" cy="30%" r="85%">
+      <stop offset="0%"  stop-color="#a06a44" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#4a2f1c" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#120a04" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+</svg>
+</head>
+<body>
+  <div class="grid">
+
+    <!-- TILE 01 — TEA LEAVES (anisotropic fibres) -->
+    <div class="tile">
+      <svg class="bg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+        <rect width="400" height="400" fill="url(#lightTea)"/>
+        <!-- fibre bands rotated to suggest leaf direction -->
+        <g transform="translate(200 200) rotate(-22) translate(-260 -260)">
+          <rect x="0" y="0" width="520" height="520" filter="url(#teaFibre)" opacity="0.55"/>
+        </g>
+        <g transform="translate(200 200) rotate(14) translate(-260 -260)">
+          <rect x="0" y="0" width="520" height="520" filter="url(#teaFibre)" opacity="0.35"/>
+        </g>
+        <!-- a few leaf-like shapes -->
+        <g opacity="0.32">
+          <path d="M60 250 C 120 170, 230 150, 320 200 C 240 250, 130 290, 60 250 Z"
+                fill="#1c1208"/>
+          <path d="M110 320 C 160 270, 260 260, 330 300 C 270 340, 170 350, 110 320 Z"
+                fill="#0f0905"/>
+          <path d="M180 110 C 220 90, 300 110, 340 150 C 290 170, 220 160, 180 110 Z"
+                fill="#1a1008"/>
+        </g>
+        <!-- vein lines -->
+        <g stroke="rgba(242,238,230,0.10)" stroke-width="0.4" fill="none">
+          <path d="M70 248 C 150 220, 240 215, 318 205"/>
+          <path d="M115 318 C 180 300, 260 295, 326 302"/>
+          <path d="M185 115 C 240 110, 290 130, 336 150"/>
+        </g>
+        <rect width="400" height="400" filter="url(#grain)" opacity="0.55"/>
+      </svg>
+      <div class="frame"></div>
+      <span class="crosshair tl"></span><span class="crosshair tr"></span>
+      <span class="crosshair bl"></span><span class="crosshair br"></span>
+      <span class="lab-tl">— Macro · tea leaves</span>
+      <span class="lab-br">SPEC · 01</span>
+    </div>
+
+    <!-- TILE 02 — MOSS / FOREST FLOOR -->
+    <div class="tile">
+      <svg class="bg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+        <rect width="400" height="400" fill="url(#lightKelp)"/>
+        <!-- moss texture base -->
+        <rect width="400" height="400" filter="url(#mossFibre)" opacity="0.75"/>
+        <!-- tiny circular spores / clusters -->
+        <g fill="rgba(242,238,230,0.06)">
+          <circle cx="80" cy="120" r="1.2"/><circle cx="95" cy="135" r="0.8"/><circle cx="120" cy="115" r="1"/>
+          <circle cx="240" cy="80" r="1.4"/><circle cx="260" cy="95" r="0.9"/><circle cx="285" cy="78" r="1.1"/>
+          <circle cx="160" cy="240" r="1.3"/><circle cx="180" cy="255" r="0.9"/><circle cx="205" cy="245" r="1"/>
+          <circle cx="320" cy="300" r="1.5"/><circle cx="340" cy="315" r="1"/><circle cx="305" cy="320" r="0.9"/>
+          <circle cx="60" cy="320" r="1"/><circle cx="80" cy="335" r="0.8"/>
+        </g>
+        <!-- frond strokes -->
+        <g stroke="rgba(242,238,230,0.10)" stroke-width="0.5" fill="none">
+          <path d="M40 360 C 80 320, 120 300, 160 320"/>
+          <path d="M260 380 C 280 340, 310 320, 360 330"/>
+          <path d="M200 60 C 220 90, 230 120, 220 150"/>
+        </g>
+        <rect width="400" height="400" filter="url(#grain)" opacity="0.45"/>
+      </svg>
+      <div class="frame"></div>
+      <span class="crosshair tl"></span><span class="crosshair tr"></span>
+      <span class="crosshair bl"></span><span class="crosshair br"></span>
+      <span class="lab-tl">— Forest · kelp · moss</span>
+      <span class="lab-br">SPEC · 02</span>
+    </div>
+
+    <!-- TILE 03 — TANNIN GRAIN / LEATHER MACRO -->
+    <div class="tile">
+      <svg class="bg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+        <rect width="400" height="400" fill="url(#lightTan)"/>
+        <!-- displaced leather grain -->
+        <rect width="400" height="400" filter="url(#grainTexture)" opacity="0.70"/>
+        <!-- embossed crease line -->
+        <g stroke="rgba(20,16,10,0.5)" stroke-width="0.8" fill="none">
+          <path d="M0 232 Q 90 226, 180 230 T 400 234"/>
+        </g>
+        <g stroke="rgba(242,238,230,0.10)" stroke-width="0.5" fill="none">
+          <path d="M0 230 Q 90 224, 180 228 T 400 232"/>
+        </g>
+        <!-- subtle stitch dots along that line -->
+        <g fill="rgba(20,16,10,0.55)">
+          <circle cx="40" cy="220" r="0.9"/><circle cx="64" cy="219" r="0.9"/>
+          <circle cx="88" cy="220" r="0.9"/><circle cx="112" cy="221" r="0.9"/>
+          <circle cx="136" cy="221" r="0.9"/><circle cx="160" cy="222" r="0.9"/>
+          <circle cx="184" cy="223" r="0.9"/><circle cx="208" cy="223" r="0.9"/>
+          <circle cx="232" cy="224" r="0.9"/><circle cx="256" cy="225" r="0.9"/>
+          <circle cx="280" cy="225" r="0.9"/><circle cx="304" cy="226" r="0.9"/>
+          <circle cx="328" cy="226" r="0.9"/><circle cx="352" cy="227" r="0.9"/>
+        </g>
+        <rect width="400" height="400" filter="url(#grain)" opacity="0.55"/>
+      </svg>
+      <div class="frame"></div>
+      <span class="crosshair tl"></span><span class="crosshair tr"></span>
+      <span class="crosshair bl"></span><span class="crosshair br"></span>
+      <span class="lab-tl">— Tannin · grain · stitch</span>
+      <span class="lab-br">SPEC · 03</span>
+    </div>
+
+  </div>
+</body>
+</html>

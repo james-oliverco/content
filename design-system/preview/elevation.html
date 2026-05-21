@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Oliver Co — Elevation</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { background: var(--oc-bone); padding: 28px; font-family: var(--oc-font-sans); color: var(--oc-ink); }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom: 22px; }
+  .eye  { font-family: var(--oc-font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--oc-stone); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: end; }
+  .cell { display:flex; flex-direction: column; gap: 10px; }
+  .card { height: 80px; background: var(--oc-paper); }
+  .a { box-shadow: var(--oc-shadow-inset); }
+  .b { box-shadow: var(--oc-shadow-soft); }
+  .c { box-shadow: var(--oc-shadow-lift); }
+  .tok { font-family: var(--oc-font-mono); font-size: 10px; color: var(--oc-stone); letter-spacing: 0.04em; text-transform: uppercase; }
+  .desc { font-family: var(--oc-font-sans); font-size: 12px; color: var(--oc-stone); line-height: 1.4; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="eye">Elevation — used sparingly</div>
+    <div class="eye">3 levels</div>
+  </div>
+  <div class="grid">
+    <div class="cell"><div class="card a"></div><div class="tok">--oc-shadow-inset</div><div class="desc">Inset rim · default for cards</div></div>
+    <div class="cell"><div class="card b"></div><div class="tok">--oc-shadow-soft</div><div class="desc">Soft lift · menus</div></div>
+    <div class="cell"><div class="card c"></div><div class="tok">--oc-shadow-lift</div><div class="desc">Tall · modal, gallery</div></div>
+  </div>
+</body>
+</html>
